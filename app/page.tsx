@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Target, Users, BarChart3 } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0a0f] via-[#1a1a2e] to-[#0a0a0f] text-white">

@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
   images: {
     domains: ['images.unsplash.com', 'atomberg.com'],
     formats: ['image/avif', 'image/webp'],
   },
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
   },
   // Performance optimizations
   swcMinify: true,
