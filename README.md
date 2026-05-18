@@ -4,7 +4,7 @@ A comprehensive goal setting and tracking system built with Next.js 14, featurin
 
 ## 🔗 Live Demo
 
-**URL:** [atomquest-goal-tracker.vercel.app]
+**URL:** [atomquest-goal-tracker.vercel.app](https://atomquest-goal-tracker.vercel.app)
 
 | Role     | Email                    | Password    |
 |----------|--------------------------|-------------|
