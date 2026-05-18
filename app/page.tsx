@@ -22,7 +22,7 @@ export default function Home() {
 
           {/* Subheadline */}
           <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            Streamline your organization's goal management with our comprehensive tracking system. Set goals, track progress, and achieve excellence.
+            Streamline your organization&apos;s goal management with our comprehensive tracking system. Set goals, track progress, and achieve excellence.
           </p>
 
           {/* CTA Button */}

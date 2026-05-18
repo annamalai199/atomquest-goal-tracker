@@ -391,7 +391,7 @@ export default function EmployeeCheckinsPage() {
     return {
       icon: "🔒",
       title: "Quarter Not Available Yet",
-      message: `The ${currentQuarter} check-in window hasn't opened yet.`,
+      message: `The ${currentQuarter} check-in window hasn&apos;t opened yet.`,
     };
   };
 
@@ -476,7 +476,7 @@ export default function EmployeeCheckinsPage() {
         ) : getQuarterState(currentQuarter, activeCycle) === "future" ? (
           <div className="bg-gray-500/10 border-l-4 border-gray-500 rounded-lg p-4">
             <p className="text-sm text-gray-400">
-              🔒 {currentQuarter} check-in window hasn't opened yet. {openQuarter ? `Currently open: ${openQuarter}` : ""}
+              🔒 {currentQuarter} check-in window hasn&apos;t opened yet. {openQuarter ? `Currently open: ${openQuarter}` : ""}
             </p>
           </div>
         ) : null}
