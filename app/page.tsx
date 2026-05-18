@@ -83,7 +83,7 @@ export default function Home() {
       {/* Footer */}
       <div className="border-t border-white/10 py-8">
         <div className="container mx-auto px-4 text-center text-gray-500">
-          <p>&copy; 2024 AtomQuest by Atomberg. All rights reserved.</p>
+          <p>&copy; 2026 AtomQuest by Atomberg. All rights reserved.</p>
         </div>
       </div>
     </div>
