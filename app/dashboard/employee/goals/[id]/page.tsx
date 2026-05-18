@@ -8,6 +8,8 @@ import { ArrowLeft, Edit, Calendar, TrendingUp } from "lucide-react";
 import { getUoMDisplay } from "@/lib/progress";
 import { formatTarget } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export default async function GoalDetailPage({ params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions);
 

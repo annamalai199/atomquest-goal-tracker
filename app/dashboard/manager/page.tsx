@@ -8,6 +8,8 @@ import { Users, Clock, CheckCircle, TrendingUp, AlertCircle } from "lucide-react
 import { calculateWeightedAverage } from "@/lib/progress";
 import { formatTarget } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 // Helper to get current open quarter
 function getCurrentOpenQuarter(cycle: any): string | null {
   if (!cycle) return null;
