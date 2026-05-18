@@ -6,6 +6,8 @@ import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "AtomQuest — Goal Setting & Tracking Portal",
   description: "Enterprise goal management system for Atomberg",
