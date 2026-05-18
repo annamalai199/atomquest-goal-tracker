@@ -1,0 +1,102 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0a0a0f"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    AtomQuest Architecture
+  </text>
+  
+  <!-- Browser Layer -->
+  <rect x="50" y="80" width="700" height="80" rx="10" fill="#1a1a2e" stroke="#ff4444" stroke-width="2"/>
+  <text x="400" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Browser (React/Next.js 14)
+  </text>
+  <text x="400" y="135" font-family="Arial, sans-serif" font-size="14" fill="#cccccc" text-anchor="middle">
+    Client-Side Rendering + Server Components
+  </text>
+  
+  <!-- Arrow 1 -->
+  <path d="M 400 160 L 400 200" stroke="#ff4444" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Next.js Layer -->
+  <rect x="50" y="200" width="700" height="100" rx="10" fill="#1a1a2e" stroke="#ff4444" stroke-width="2"/>
+  <text x="400" y="230" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Next.js 14 App Router
+  </text>
+  <text x="400" y="255" font-family="Arial, sans-serif" font-size="14" fill="#cccccc" text-anchor="middle">
+    API Routes + Server Actions + Middleware
+  </text>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="12" fill="#999999" text-anchor="middle">
+    Deployed on Vercel / Local Development
+  </text>
+  
+  <!-- Arrow 2 -->
+  <path d="M 400 300 L 400 340" stroke="#ff4444" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- NextAuth Layer -->
+  <rect x="50" y="340" width="220" height="80" rx="10" fill="#1a1a2e" stroke="#4444ff" stroke-width="2"/>
+  <text x="160" y="370" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    NextAuth.js
+  </text>
+  <text x="160" y="395" font-family="Arial, sans-serif" font-size="12" fill="#cccccc" text-anchor="middle">
+    Authentication
+  </text>
+  <text x="160" y="410" font-family="Arial, sans-serif" font-size="12" fill="#cccccc" text-anchor="middle">
+    & Authorization
+  </text>
+  
+  <!-- Prisma Layer -->
+  <rect x="290" y="340" width="220" height="80" rx="10" fill="#1a1a2e" stroke="#44ff44" stroke-width="2"/>
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Prisma ORM
+  </text>
+  <text x="400" y="395" font-family="Arial, sans-serif" font-size="12" fill="#cccccc" text-anchor="middle">
+    Database Queries
+  </text>
+  <text x="400" y="410" font-family="Arial, sans-serif" font-size="12" fill="#cccccc" text-anchor="middle">
+    & Migrations
+  </text>
+  
+  <!-- Role Boxes -->
+  <rect x="530" y="340" width="220" height="80" rx="10" fill="#1a1a2e" stroke="#ff44ff" stroke-width="2"/>
+  <text x="640" y="365" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    User Roles
+  </text>
+  <text x="640" y="385" font-family="Arial, sans-serif" font-size="12" fill="#44ff44" text-anchor="middle">
+    👤 Employee
+  </text>
+  <text x="640" y="402" font-family="Arial, sans-serif" font-size="12" fill="#4444ff" text-anchor="middle">
+    👔 Manager
+  </text>
+  <text x="640" y="419" font-family="Arial, sans-serif" font-size="12" fill="#ff4444" text-anchor="middle">
+    🛡️ Admin
+  </text>
+  
+  <!-- Arrow 3 -->
+  <path d="M 400 420 L 400 460" stroke="#44ff44" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Database Layer -->
+  <rect x="50" y="460" width="700" height="100" rx="10" fill="#1a1a2e" stroke="#44ff44" stroke-width="2"/>
+  <text x="400" y="490" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Neon PostgreSQL Database
+  </text>
+  <text x="400" y="515" font-family="Arial, sans-serif" font-size="14" fill="#cccccc" text-anchor="middle">
+    Serverless PostgreSQL (US East 1)
+  </text>
+  <text x="400" y="540" font-family="Arial, sans-serif" font-size="12" fill="#999999" text-anchor="middle">
+    Users | Cycles | Goals | Check-ins | Thrust Areas | Audit Logs
+  </text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ff4444"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <text x="50" y="585" font-family="Arial, sans-serif" font-size="10" fill="#999999">
+    Tech Stack: Next.js 14 | React 18 | TypeScript | Prisma | NextAuth | PostgreSQL | TailwindCSS
+  </text>
+</svg>

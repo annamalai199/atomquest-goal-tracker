@@ -1,0 +1,127 @@
+// AtomQuest Goal Tracking Portal - Database Schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("EMPLOYEE") // EMPLOYEE, MANAGER, ADMIN
+  department   String?
+  managerId    String?
+  manager      User?    @relation("ManagerEmployees", fields: [managerId], references: [id], onDelete: SetNull)
+  employees    User[]   @relation("ManagerEmployees")
+  
+  // Relations
+  goals        Goal[]   @relation("EmployeeGoals")
+  managedGoals Goal[]   @relation("ManagerGoals")
+  auditLogs    AuditLog[]
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Cycle {
+  id          String   @id @default(cuid())
+  name        String   // e.g. "FY 2025-26"
+  year        Int
+  goalSetOpen DateTime
+  q1Open      DateTime
+  q2Open      DateTime
+  q3Open      DateTime
+  q4Open      DateTime
+  isActive    Boolean  @default(false)
+  
+  goals       Goal[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ThrustArea {
+  id    String @id @default(cuid())
+  name  String @unique
+  goals Goal[]
+  
+  createdAt DateTime @default(now())
+}
+
+model Goal {
+  id           String      @id @default(cuid())
+  employeeId   String
+  employee     User        @relation("EmployeeGoals", fields: [employeeId], references: [id], onDelete: Cascade)
+  managerId    String?
+  manager      User?       @relation("ManagerGoals", fields: [managerId], references: [id], onDelete: SetNull)
+  cycleId      String
+  cycle        Cycle       @relation(fields: [cycleId], references: [id], onDelete: Cascade)
+  thrustAreaId String
+  thrustArea   ThrustArea  @relation(fields: [thrustAreaId], references: [id])
+  
+  title        String
+  description  String?
+  uom          String      // NUMERIC_MIN, NUMERIC_MAX, TIMELINE, ZERO
+  target       Float
+  weightage    Float       // 10–100, total across employee goals = 100
+  status       String      @default("DRAFT") // DRAFT, SUBMITTED, APPROVED, RETURNED, LOCKED
+  
+  // Shared goals
+  isShared     Boolean     @default(false)
+  parentGoalId String?
+  
+  checkIns     CheckIn[]
+  auditLogs    AuditLog[]
+  
+  lockedAt     DateTime?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  
+  @@index([employeeId, cycleId])
+  @@index([managerId])
+  @@index([status])
+}
+
+model CheckIn {
+  id              String    @id @default(cuid())
+  goalId          String
+  goal            Goal      @relation(fields: [goalId], references: [id], onDelete: Cascade)
+  quarter         String    // Q1, Q2, Q3, Q4
+  plannedTarget   Float
+  actualAchieved  Float?
+  progressStatus  String    @default("NOT_STARTED") // NOT_STARTED, ON_TRACK, COMPLETED
+  progressScore   Float?    // auto-computed
+  managerComment  String?
+  commentedAt     DateTime?
+  completedAt     DateTime?
+  submittedAt     DateTime? // When employee submitted this check-in
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  @@unique([goalId, quarter])
+  @@index([quarter])
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  goalId     String?
+  goal       Goal?    @relation(fields: [goalId], references: [id], onDelete: SetNull)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  action     String   // e.g. "GOAL_APPROVED", "TARGET_EDITED", "GOAL_UNLOCKED"
+  oldValue   String?  // JSON string of changed fields
+  newValue   String?  // JSON string of new values
+  
+  createdAt  DateTime @default(now())
+  
+  @@index([goalId])
+  @@index([userId])
+  @@index([createdAt])
+}
